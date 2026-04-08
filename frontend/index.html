@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PetCare - Gestión de Mascotas</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <div class="app-layout">
+      <aside class="sidebar" aria-label="Barra lateral de navegación">
+        <div class="sidebar-brand">
+          <h1>PetCare</h1>
+          <p>Gestión de Mascotas</p>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Navegación principal">
+          <ul>
+            <li><a href="#inicio" data-tab="inicio" class="active">Inicio</a></li>
+            <li><a href="#acceso" data-tab="acceso">Acceso</a></li>
+            <li><a href="#servicios" data-tab="servicios">Servicios</a></li>
+            <li><a href="#mascotas" data-tab="mascotas">Mascotas</a></li>
+            <li><a href="#reporte" data-tab="reporte">Reporte</a></li>
+          </ul>
+        </nav>
+
+        <footer class="sidebar-footer">
+          <div class="user-badge" aria-label="Usuario conectado">
+            <span>Usuario:</span>
+            <strong id="usuario-nombre">admin@petcare.com</strong>
+          </div>
+          <button type="button" id="logout-button">Salir</button>
+        </footer>
+      </aside>
+
+      <main class="main-content">
+        <section id="inicio" class="active" aria-label="Inicio">
+          <div class="banner">
+            <h2>Bienvenido a PetCare</h2>
+            <p>Administra tu clínica de mascotas de forma fácil y ordenada.</p>
+          </div>
+
+          <article>
+            <h3>Saludo personalizado</h3>
+            <form id="form-saludo">
+              <label for="saludo-nombre">Nombre:</label>
+              <input type="text" id="saludo-nombre" name="saludo-nombre" required />
+              <button type="submit" class="btn-primary">Enviar</button>
+            </form>
+          </article>
+        </section>
+
+        <section id="acceso" class="section" aria-label="Acceso">
+          <header>
+            <h2>Acceso</h2>
+          </header>
+
+          <article>
+            <h3>Registro</h3>
+            <form id="form-registro">
+              <label for="registro-email">Correo electrónico:</label>
+              <input type="email" id="registro-email" name="registro-email" required />
+              <label for="registro-password">Contraseña:</label>
+              <input type="password" id="registro-password" name="registro-password" required />
+              <button type="submit" class="btn-success">Registrar</button>
+            </form>
+          </article>
+
+          <article>
+            <h3>Login</h3>
+            <form id="form-login">
+              <label for="login-email">Correo electrónico:</label>
+              <input type="email" id="login-email" name="login-email" required />
+              <label for="login-password">Contraseña:</label>
+              <input type="password" id="login-password" name="login-password" required />
+              <button type="submit" class="btn-primary">Entrar</button>
+            </form>
+          </article>
+        </section>
+
+        <section id="servicios" class="section" aria-label="Servicios">
+          <header>
+            <h2>Servicios</h2>
+          </header>
+
+          <article>
+            <h3>Agregar servicio</h3>
+            <form id="form-servicio">
+              <label for="servicio-nombre">Nombre del servicio:</label>
+              <input type="text" id="servicio-nombre" name="servicio-nombre" required />
+              <label for="servicio-precio">Precio:</label>
+              <input type="number" id="servicio-precio" name="servicio-precio" min="0" step="0.01" required />
+              <button type="submit" class="btn-primary">Agregar</button>
+            </form>
+          </article>
+
+          <article>
+            <h3>Lista de servicios</h3>
+            <ul id="lista-servicios" aria-live="polite"></ul>
+          </article>
+        </section>
+
+        <section id="mascotas" class="section" aria-label="Mascotas">
+          <header>
+            <h2>Mas mascotas</h2>
+          </header>
+
+          <article>
+            <h3>Registrar mascota</h3>
+            <form id="form-mascota">
+              <label for="mascota-email">Correo del dueño</label>
+              <input type="email" id="mascota-email" name="mascota-email" required />
+              <label for="mascota-nombre">Nombre de la mascota</label>
+              <input type="text" id="mascota-nombre" name="mascota-nombre" required />
+              <label for="mascota-servicio">Servicio</label>
+              <select id="mascota-servicio" name="mascota-servicio" required>
+                <option value="">Seleccionar servicio</option>
+              </select>
+              <label for="mascota-fecha">Fecha</label>
+              <input type="date" id="mascota-fecha" name="mascota-fecha" required />
+              <button type="submit" class="btn-primary">Registrar</button>
+            </form>
+          </article>
+
+          <article>
+            <h3>Buscador de mascotas</h3>
+            <form id="form-buscar-mascota">
+              <label for="buscar-mascota">Buscar por correo del dueño</label>
+              <input type="email" id="buscar-mascota" name="buscar-mascota" required />
+              <button type="submit" class="btn-outline">Buscar</button>
+            </form>
+          </article>
+
+          <div id="resultado-busqueda-mascotas"></div>
+        </section>
+
+        <section id="reporte" class="section" aria-label="Reporte">
+          <header>
+            <h2>Reporte</h2>
+          </header>
+
+          <article>
+            <h3>Buscar reporte por correo</h3>
+            <form id="form-reporte">
+              <label for="reporte-email">Correo electrónico</label>
+              <input type="email" id="reporte-email" name="reporte-email" required />
+              <button type="submit" class="btn-primary">Buscar</button>
+            </form>
+          </article>
+
+          <div id="reporte-resultados" aria-live="polite"></div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
