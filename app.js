@@ -1,4 +1,4 @@
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE = "https://veterinaria-matias-506160926608.europe-west1.run.app/";
 
 const authState = {
   loggedIn: false,
